@@ -1457,10 +1457,10 @@
     component-cookie "^1.1.2"
     component-url "^0.2.1"
 
-"@segment/tracktor@0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@segment/tracktor/-/tracktor-0.12.0.tgz#2df0a1f8dad87e13ca4afac51655d6bac7c0c95f"
-  integrity sha512-yOGcYD33y0Wo1qHIA+IFIHcxk0GoRrQwCjpuaKZf2rnz0puZoseSGPdbIX47BgMLSSgEYnBoW3s5aUpCRdkEkw==
+"@segment/tracktor@0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@segment/tracktor/-/tracktor-0.12.1.tgz#ca3e868f8b51c7da585764a482874addc31ea3e1"
+  integrity sha512-M9/XhBOHzerK1ZoiL/wOaM4gmzBOV6e2Z/xeic85qjKtiFSqNOBthlpyEGfEDKo6niEVBQm6wn86HgcAEkMDAg==
   dependencies:
     element-matches-polyfill "^1.0.0"
     whatwg-fetch "^3.0.0"
@@ -6776,9 +6776,9 @@ node-fetch-npm@^2.0.2:
     safe-buffer "^5.1.1"
 
 node-fetch@^2.3.0, node-fetch@^2.5.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
-  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 node-gyp@^4.0.0:
   version "4.0.0"
