@@ -6,7 +6,6 @@
 
 var integration = require('@segment/analytics.js-integration');
 var Track = require('segmentio-facade').Track;
-var each = require('@ndhoule/each');
 var del = require('obj-case').del;
 var clone = require('@ndhoule/clone');
 var appboyUtil = require('./appboyUtil');
@@ -286,26 +285,27 @@ Appboy.prototype.identify = function(identify) {
     'email_subscribe',
     'push_subscribe'
   ];
-  each(function(key) {
+
+  reserved.forEach(function(key) {
     delete traits[key];
-  }, reserved);
+  });
 
   // Remove nested hash objects as Braze only supports nested array objects in identify calls
   // https://segment.com/docs/destinations/braze/#identify
-  each(function(value, key) {
+  Object.keys(traits).forEach(function(key) {
     if (
-      value !== null &&
-      typeof value === 'object' &&
-      !Array.isArray(value) &&
-      !isDate(value)
+      traits[key] !== null &&
+      typeof traits[key] === 'object' &&
+      !Array.isArray(traits[key]) &&
+      !isDate(traits[key])
     ) {
       delete traits[key];
     }
-  }, traits);
+  });
 
-  each(function(value, key) {
-    window.appboy.getUser().setCustomUserAttribute(key, value);
-  }, traits);
+  Object.keys(traits).forEach(function(key) {
+    window.appboy.getUser().setCustomUserAttribute(key, traits[key]);
+  });
 };
 
 /**
@@ -358,11 +358,15 @@ Appboy.prototype.track = function(track) {
   } else {
     // Remove nested objects as Braze doesn't support objects in tracking calls
     // https://segment.com/docs/destinations/braze/#track
-    each(function(value, key) {
-      if (value != null && typeof value === 'object' && !isDate(value)) {
+    Object.keys(properties).forEach(function(key) {
+      if (
+        properties[key] != null &&
+        typeof properties[key] === 'object' &&
+        !isDate(properties[key])
+      ) {
         delete properties[key];
       }
-    }, properties);
+    });
     window.appboy.logCustomEvent(eventName, properties);
   }
 };
