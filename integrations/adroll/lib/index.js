@@ -182,6 +182,7 @@ AdRoll.prototype.orderCompleted = function(track) {
 
 function sendConversion(events, d) {
   each(function(segmentId) {
+    // foo
     var data = d;
     data.adroll_segments = segmentId;
     window.__adroll.record_user(data);
