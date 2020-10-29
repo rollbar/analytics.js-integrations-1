@@ -4,7 +4,6 @@
  * Module dependencies.
  */
 
-var each = require('@ndhoule/each');
 var foldl = require('@ndhoule/foldl');
 var integration = require('@segment/analytics.js-integration');
 var map = require('@ndhoule/map');
@@ -181,12 +180,12 @@ AdRoll.prototype.orderCompleted = function(track) {
  */
 
 function sendConversion(events, d) {
-  each(function(segmentId) {
-    // foo
+  var eventsKeys = Object.keys(events);
+  eventsKeys.forEach(function(key) {
     var data = d;
-    data.adroll_segments = segmentId;
+    data.adroll_segments = events[key];
     window.__adroll.record_user(data);
-  }, events);
+  });
 }
 
 /**

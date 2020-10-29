@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/segmentio/analytics.js-integrations/blob/master/integrations/adometry#readme",
   "dependencies": {
-    "@ndhoule/each": "^2.0.1",
     "@ndhoule/entries": "^2.0.0",
     "@ndhoule/extend": "^2.0.0",
     "@ndhoule/map": "^2.0.1",
