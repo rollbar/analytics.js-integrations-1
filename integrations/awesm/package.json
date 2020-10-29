@@ -9,10 +9,6 @@
     "awesm"
   ],
   "main": "lib/index.js",
-  "scripts": {
-    "test": "karma start",
-    "test:ci": "karma start karma.conf-ci.js"
-  },
   "author": "Segment <friends@segment.com>",
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://github.com/segmentio/analytics.js-integrations/blob/master/integrations/awesm#readme",
