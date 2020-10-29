@@ -4,7 +4,6 @@
  * Module dependencies.
  */
 
-var each = require('@ndhoule/each');
 var entries = require('@ndhoule/entries');
 var extend = require('@ndhoule/extend');
 var integration = require('@segment/analytics.js-integration');
@@ -60,14 +59,14 @@ Adometry.prototype.track = function(track) {
   var properties = track.properties(aliases);
   var filteredProperties = pick(values(aliases), properties);
 
-  each(function(placementId) {
+  placementIds.forEach(function(placementId) {
     self.load('track', {
       advertiserId: self.options.advertiserId,
       campaignId: self.options.campaignId,
       placementId: placementId,
       properties: self._hashify(filteredProperties, 'cus.')
     });
-  }, placementIds);
+  });
 };
 
 /**
@@ -98,7 +97,9 @@ Adometry.prototype.page = function(page) {
 
 // TODO: Move into a lib file and test separately once we have multi-file support
 Adometry.prototype._hashify = function(props, prefix) {
+  // eslint-disable-next-line no-param-reassign
   prefix = prefix || '';
+  // eslint-disable-next-line no-param-reassign
   props = entries(props);
 
   if (!props || !props.length) {
